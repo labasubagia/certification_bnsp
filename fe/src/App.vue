@@ -5,12 +5,13 @@ const employeeRemote = new EmployeeRemote()
 
 export default {
   setup() {
+    // Local state untuk menyimpan data sementara
     const employees = ref([])
-
     const defaultForm = { _id:'', employee_id:'',name:'', address:'', phone:'' }
     const form = ref({...defaultForm})
     const isFormOpen = ref(false)
 
+    // Koneksi server backend untuk load data
     const loadData = async () => {
       try {
         employees.value = await employeeRemote.getAll()
@@ -19,6 +20,8 @@ export default {
       }
     }
 
+    // Koneksi server backend untuk delete data
+    // Konfirmasi delete terlebih dahulu
     const handleDelete = async (employee) => {
       try {
         const isConfirmed = confirm(`Delete this employee ${employee.name}`)
@@ -42,6 +45,8 @@ export default {
       form.value = {...defaultForm}
     }
 
+    // Handler ketika form di click submit
+    // Otomatis memilih save untuk create/update berdasarkan id data
     const handleFormSubmit = async () => {
       try {
         const state = form.value._id ? 'update' : 'create'
@@ -55,6 +60,7 @@ export default {
       }
     }
 
+    // Menjalankan fungsi load data
     loadData()
 
     return {

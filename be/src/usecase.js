@@ -1,3 +1,4 @@
+// Handle read write data menggunakan model
 class EmployeeUseCase {
   constructor({ employeeModel }) {
     this.employeeModel = employeeModel;

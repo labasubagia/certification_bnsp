@@ -1,3 +1,4 @@
+// Controller untuk dipakai di router
 class EmployeeController {
   constructor({ employeeUseCase }) {
     this.employeeUseCase = employeeUseCase;
