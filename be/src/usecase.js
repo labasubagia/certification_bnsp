@@ -1,4 +1,5 @@
 // Handle read write data menggunakan model
+// Fokus dari class ini adalah tempat dimana business process berada
 class EmployeeUseCase {
   constructor({ employeeModel }) {
     this.employeeModel = employeeModel;

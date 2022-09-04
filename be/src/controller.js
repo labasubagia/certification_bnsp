@@ -1,4 +1,6 @@
 // Controller untuk dipakai di router
+// Fokus dari class ini adalah mengatur request yang masuk
+// memberi respon, dan handle error
 class EmployeeController {
   constructor({ employeeUseCase }) {
     this.employeeUseCase = employeeUseCase;
